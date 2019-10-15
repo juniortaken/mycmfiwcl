@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'mysql_production'),
 
     /*
     |--------------------------------------------------------------------------
@@ -61,6 +61,26 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
+        ],
+        'mysql_production' => [
+            'driver' => 'mysql',
+            'url' => env('https://mysql7.lwspanel.com/myadmin4'),
+            'host' => env('DB_HOST', '91.216.107.161'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'cmfiw1135634_1xooqx'),
+            'username' => env('DB_USERNAME', 'cmfiw1135634'),
+            'password' => env('DB_PASSWORD', 'worldconquestlibrary'),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+            'modes'=> ['ONLY_FULL_GROUP_BY','STRICT_TRANS_TABLES','NO_ZERO_IN_DATE','NO_ZERO_DATE','ERROR_FOR_DIVISION_BY_ZERO','NO_ENGINE_SUBSTITUTION'],
         ],
 
         'pgsql' => [
